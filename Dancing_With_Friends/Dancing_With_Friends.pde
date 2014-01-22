@@ -11,7 +11,7 @@ boolean saveNextFrame;
 
 void setup() {
   size(1280, 720);
-  frameRate(30);
+  frameRate(60);
   activeFollowers = 2000;
   totalFollowers = 10000;
   initUI();

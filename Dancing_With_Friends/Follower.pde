@@ -26,14 +26,6 @@ void randomiseContact(int i) {
   int offsetE1 = (int)(circularE1Slider.val * activeFollowers);
   int offsetE2 = (int)(circularE2Slider.val * activeFollowers);
 
-  //  while (j == k || j == l || j == m || k == l || k == m || l == m ||
-  //    j == i || k == i || l == i || m == i) {
-  //    j = (int)random(activeFollowers);
-  //    k = (int)random(activeFollowers);
-  //    l = (int)random(activeFollowers);
-  //    m = (int)random(activeFollowers);
-  //  }
-
   if (circleF1Toggle.set) {
     j = (i + activeFollowers + offsetF1) % activeFollowers;
   } 
@@ -82,21 +74,16 @@ void randomiseContact(int i) {
 
 class Follower {
   float x, vx, y, vy;
-  float sc, fc;
-  color c;
   Follower friend, friend2, enemy, enemy2;
 
   Follower(float _x, float _y) {
     x = _x;
     y = _y;
     vx = vy = 0;
-    sc = random(1);
-    fc = random(1);
-    c =  0xFF000000 + (int)random(0x1000000);
   }
 
   void stepTo(float tx, float ty, float stepsize) {
-    float angle = atan2((float)(ty - y), (float)(tx - x));
+    float angle = atan2(ty - y, tx - x);
     vx += stepsize*cos(angle);
     vy += stepsize*sin(angle);
   }
